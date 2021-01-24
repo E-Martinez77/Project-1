@@ -1,3 +1,6 @@
+
+var searchButton = $("#searchButton");
+var searchInput = $("#searchInput");
 var queryURL = "https://www.swapi.tech/api/";
 
 $.ajax({
