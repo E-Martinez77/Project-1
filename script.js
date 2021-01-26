@@ -1,7 +1,8 @@
 
 var searchButton = $("#searchButton");
 var searchInput = $("#searchInput");
-var queryURL = "https://www.swapi.tech/api/";
+var queryURL = "https://opentdb.com/api.php?amount=10";
+
 
 $.ajax({
     url: queryURL,
