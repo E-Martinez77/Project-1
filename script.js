@@ -18,7 +18,7 @@ $.ajax({
     console.log(response)
 });
 $.ajax({
-    url: "https://api.fungenerators.com/taunt/generate?category=new-age-insult&limit=3",
+    url: "https://api.fungenerators.com/taunt/generate?category=pirate-insult&limit=5",
     method: "GET",
     contentType: "application/json",
 }).then(function (response) {
