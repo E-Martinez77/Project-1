@@ -6,10 +6,15 @@ var incorrect1 = "";
 var incorrect2 = "";
 var incorrect3 = "";
 var questions = "";
+// var btn1 = document.getElementById("#answer1");
+// var btn2 = document.getElementById("#answer2");
+// var btn3 = document.getElementById("#answer3");
+// var btn4 = document.getElementById("#answer4");
 
-
-
-
+var btn1 = $("#answer1");
+var btn2 = $("#answer2");
+var btn3 = $("#answer3");
+var btn4 = $("#answer4");
 $.ajax({
     url: queryURL,
     method: "GET",
@@ -21,17 +26,21 @@ $.ajax({
     incorrect1 = response.results[index].incorrect_answers[0];
     incorrect2 = response.results[index].incorrect_answers[1];
     incorrect3 = response.results[index].incorrect_answers[2];
-    var answer = [correctAnswers, incorrect1, incorrect2, incorrect3]
+    btn1.append(correctAnswers);
+    btn2.append(incorrect1);
+    btn3.append(incorrect2);
+    btn4.append(incorrect3);
+
+    var answer = [btn1, btn2, btn3, btn4]
     console.log(answer);
     shuffle(answer);
     console.log(response);
-    $(".questionDiv").text(response.results[0].question)
-    $(".answer1").text(response.results[0].correct_answer + response.results[0].incorrect_answers)
+    $("#questionDiv").text(questions)
+    $("#answers").text(answer)
     console.log(questions);
     for (let i = 0; i < answer.length; i++) {
-        const element = answer[i];
-        console.log(element);
-
+        const choices = answer[i];
+        console.log(choices)
 
     }
 
