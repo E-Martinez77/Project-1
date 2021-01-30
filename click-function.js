@@ -24,7 +24,7 @@ $.ajax({
     method: "GET",
 
 }).then(function (response) {
-    var response = response;
+    // var response = response;
     // JSON.parse(response.replace(/&quot;/g, '"'));
     var index = 0;
     questions = response.results[index].question
