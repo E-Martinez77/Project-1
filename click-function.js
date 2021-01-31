@@ -7,8 +7,9 @@ var incorrect2 = "";
 var incorrect3 = "";
 var questions = "";
 var score = 0;
-
-
+var res = function () {
+    toString.replace("&quot", "''");
+};
 // var btn1 = document.getElementById("#answer1");
 // var btn2 = document.getElementById("#answer2");
 // var btn3 = document.getElementById("#answer3");
