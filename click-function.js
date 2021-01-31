@@ -34,13 +34,13 @@ $.ajax({
     incorrect3 = response.results[index].incorrect_answers[2];
     maxQuestions = 10;
     console.log(response)
-    var answer = [correctAnswers, incorrect1, incorrect2, incorrect3]
-    shuffle(answer);
-    for (let j = 1; j <= answer.length; j++) {
-        $("#answer" + [j]).text(answer[j])
+    // var answer = [correctAnswers, incorrect1, incorrect2, incorrect3]
+    // shuffle(answer);
+    // for (let j = 1; j <= answer.length; j++) {
+    //     $("#answer" + [j]).text(answer[j])
 
 
-    }
+    // }
     // btn1.append(correctAnswers);
     // btn2.append(incorrect1);
     // btn3.append(incorrect2);
@@ -70,18 +70,18 @@ $.ajax({
         btn4.text(incorrect3);
     }
 
-    // var answer = [correctAnswers, incorrect1, incorrect2, incorrect3]
+    var answer = [correctAnswers, incorrect1, incorrect2, incorrect3]
     // console.log(answer);
     // shuffle(answer);
     // console.log(response);
     // $("#questionDiv").text(questions)
     // $("#answers").text(answer)
     // console.log(questions);
-    // for (let i = 0; i < answer.length; i++) {
-    //     const choices = answer[i];
-    //     console.log(choices)
+    for (let i = 0; i < answer.length; i++) {
+        const choices = answer[i];
+        console.log(choices)
 
-    // }
+    }
     // function shuffle(answer) {
     //     console.log(answer.sort(() => Math.random() - 0.5));
     // }
