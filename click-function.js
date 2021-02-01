@@ -6,6 +6,9 @@ var incorrect1 = "";
 var incorrect2 = "";
 var incorrect3 = "";
 var questions = "";
+var difficultyDisplay = "";
+var catagoryDisplay = "";
+var typeDisplay = "";
 var score = 0;
 var res = function () {
     toString.replace("&quot", "''");
@@ -32,6 +35,9 @@ $.ajax({
     incorrect1 = response.results[index].incorrect_answers[0];
     incorrect2 = response.results[index].incorrect_answers[1];
     incorrect3 = response.results[index].incorrect_answers[2];
+    categoryDisplay = response.results[index].category;
+    difficultyDisplay = response.results[index].difficulty;
+    typeDisplay = response.results[index].type;
     maxQuestions = 10;
     console.log(response)
     // var answer = [correctAnswers, incorrect1, incorrect2, incorrect3]
