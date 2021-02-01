@@ -6,13 +6,26 @@ var incorrect1 = "";
 var incorrect2 = "";
 var incorrect3 = "";
 var questions = "";
+var scoreDiv = $("#scoreValue");
+var score = 0;
+var highScore = localStorage.getItem("highScore") || [];
+var lastScore = localStorage.getItem("lastScore");
 var difficultyDisplay = "";
 var catagoryDisplay = "";
 var typeDisplay = "";
-var score = 0;
-var res = function () {
-    toString.replace("&quot", "''");
-};
+// if (localStorage.getItem("highScore")) {
+//     highScore = localStorage.getItem("highScore")
+// }else {
+//     highScore = []
+// }
+// var highScore = [{
+//     initials: "AJB",
+//     score: 100
+// }
+// ]
+// var res = function () {
+//     toString.replace("&quot", "''");
+// };
 // var btn1 = document.getElementById("#answer1");
 // var btn2 = document.getElementById("#answer2");
 // var btn3 = document.getElementById("#answer3");
@@ -30,6 +43,7 @@ $.ajax({
 }).then(function (response) {
     var response = response;
     var index = 0;
+    // scoreDiv.text(score);
     questions = response.results[index].question
     correctAnswers = response.results[index].correct_answer;
     incorrect1 = response.results[index].incorrect_answers[0];
@@ -52,24 +66,41 @@ $.ajax({
     // btn3.append(incorrect2);
     // btn4.append(incorrect3);
     // console.log(questions + "this is line 40")
+    function userChoice(score) {
+
+        var index = 0;
+        // scoreDiv.text(score);
+        questions = response.results[index].question
+        correctAnswers = response.results[index].correct_answer;
+        incorrect1 = response.results[index].incorrect_answers[0];
+        incorrect2 = response.results[index].incorrect_answers[1];
+        incorrect3 = response.results[index].incorrect_answers[2];
+        if (correctAnswers) {
+            // score++;
+            console.log(score)
+            scoreDiv.text(score);
+
+        }
+
+    }
     function quizQuestions() {
-        score = 0;
+        // score = 0;
         nextQuestion = 0;
         // questions;
-        console.log(questions + " this is inside quizQuestions function")
+        // console.log(questions + " this is inside quizQuestions function")
     }
     function getNextQuestion() {
         if (response.results.indexOf(response.results[index]) === 0 || nextQuestion <= maxQuestions)
             index++;
-        console.log(index)
-        console.log(questions + "this is Questions incremented ")
+        // console.log(index)
+        // console.log(questions + "this is Questions incremented ")
         questions = response.results[index].question;
         correctAnswers = response.results[index].correct_answer;
         incorrect1 = response.results[index].incorrect_answers[0];
         incorrect2 = response.results[index].incorrect_answers[1];
         incorrect3 = response.results[index].incorrect_answers[2];
         maxQuestions = 10;
-        $("#questionDiv").text(questions)
+        $("#questionDiv").html(questions)
         btn1.text(correctAnswers);
         btn2.text(incorrect1);
         btn3.text(incorrect2);
@@ -85,17 +116,27 @@ $.ajax({
     // console.log(questions);
     for (let i = 0; i < answer.length; i++) {
         const choices = answer[i];
-        console.log(choices)
+        // console.log(choices)
 
     }
     // function shuffle(answer) {
     //     console.log(answer.sort(() => Math.random() - 0.5));
     // }
     $("button").on("click", function () {
+        userChoice(score)
         getNextQuestion()
         quizQuestions()
+        correctAnswers = response.results[index].correct_answer;
+        if (correctAnswers === $(this).text()) {
+            score++;
+            console.log(score)
+            scoreDiv.text(score);
+            console.log(correctAnswers)
+        }
+        console.log($(this).text())
 
     })
+    // scoreDiv.text(score);
 });
 
 // $("button").click(function () {
@@ -120,7 +161,7 @@ $.ajax({
 //     console.log(response)
 // });
 
-function shuffle(answer) {
-    console.log(answer.sort(() => Math.random() - 0.5));
-}
+// function shuffle(answer) {
+    // console.log(answer.sort(() => Math.random() - 0.5));
+// }
 // shuffle([1, 2, 3, 4, 5])

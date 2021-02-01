@@ -1,4 +1,53 @@
 .btn-large {
-    width: 80%;
-    margin: 10px;
+  width: 80%;
+  margin: 10px;
+}
+
+.hide {
+  display: none;
+}
+
+* {
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #d84063;
+  opacity: 100%;
+}
+
+#navBar {
+  background-color: #453e40;
+}
+
+#startButton {
+  background-color: #120105;
+}
+
+#answer1 {
+  background-color: #120105;
+  margin-bottom: 10px;
+}
+
+#answer2 {
+  background-color: #120105;
+  margin-bottom: 10px;
+}
+
+#answer3 {
+  background-color: #120105;
+  margin-bottom: 10px;
+}
+
+#answer4 {
+  background-color: #120105;
+  margin-bottom: 10px;
+}
+
+#questionDiv {
+  color: rgb(255, 255, 255);
+}
+
+#screDv {
+  color: rgb(255, 255, 255);
 }
