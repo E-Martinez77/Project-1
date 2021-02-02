@@ -1,6 +1,8 @@
 .btn-large {
   width: 80%;
-  margin: 10px;
+  margin: 20px;
+  border-radius: 40px;
+
 }
 
 .hide {
@@ -22,6 +24,8 @@ body {
 
 #startButton {
   background-color: #120105;
+  margin: 20px;
+  width: 90%;
 }
 
 #answer1 {
@@ -53,4 +57,14 @@ body {
 }
 #topScore {
   color: #120105;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+#answerContainer {
+  flex: 1 0 auto;
 }
