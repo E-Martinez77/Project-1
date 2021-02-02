@@ -86,6 +86,11 @@ $.ajax({
     function getNextQuestion() {
         if (response.results.indexOf(response.results[index]) === 0 || nextQuestion <= maxQuestions)
             index++;
+        if (index > 9) {
+            location.href = "results.html";
+
+
+        }
         // console.log(index)
         // console.log(questions + "this is Questions incremented ")
         questions = response.results[index].question;
@@ -121,12 +126,17 @@ $.ajax({
         getNextQuestion()
         quizQuestions()
         correctAnswers = response.results[index].correct_answer;
+
         if (correctAnswers === $(this).text()) {
             score++;
             console.log(score)
             scoreDiv.text(score);
             console.log(correctAnswers)
         }
+        // if (index > 9) {
+        //     location.pathname = "/results.html";
+
+        // }
         console.log($(this).text())
 
     })
