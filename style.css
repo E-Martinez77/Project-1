@@ -59,6 +59,12 @@ body {
   color: #120105;
 }
 
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
 #answerContainer {
-  margin: 5%;
+  flex: 1 0 auto;
 }
