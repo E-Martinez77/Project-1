@@ -1,16 +1,17 @@
 var highScore = localStorage.getItem("highScore") || [];
 var lastScore = localStorage.getItem("lastScore");
 var scoreDiv = $("#scoreValue");
-var score = 0;
+var score = 5;
 // var gifDiv = $(".gifDiv")
-var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=woeSTKx31cUEbpyCR3usgJEDXyL4dFlZ&tag=insult&rating=pg";
+var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=woeSTKx31cUEbpyCR3usgJEDXyL4dFlZ";
 var insult = "&tag=insult&rating=pg"
 var cheer = "&tag=cheer&rating=pg"
 
-function getGif() {
+
+function getGif(feedBack) {
 
 $.ajax({
-  url: queryURL,
+  url: queryURL + feedBack,
   method: "GET"
 }).then(function(response) {
     
@@ -25,6 +26,8 @@ $.ajax({
 
     
     $(".gifDiv").prepend(randoImg);
+
+
   });
 
 }
@@ -37,32 +40,31 @@ $.ajax({
     //     console.log(response)
     // });
 
-    scoreDiv.text(score);
-
-    scoreDiv.text(score)
+    // scoreDiv.text(score);
+    $("#scoreValue").text(score)
+    // scoreDiv.text(score)
 
 function go(score) {
     
-    if (score > 8){
-        upper();
-        
-    } else if (score > 6 && score < 8) {
-        middle();
-
-    } else {getBigBrain();
+    if (score > 7){
+        getGif(cheer);
+  
+    } else {getGif(insult);
         }
-    console.log (go)
+    
 } 
 
-function upper () {
+go(score)
+
+// function upper () {
     
-    console.log("I am the best")
-}
+//     console.log("I am the best")
+// }
 
-function middle () {
-    console.log("I am the cheer")
-}
+// function middle () {
+//     console.log("I am the cheer")
+// }
 
-function getBigBrain () {
-    console.log("I am an insult")
-}
+// function getBigBrain () {
+//     console.log("I am an insult")
+// }
