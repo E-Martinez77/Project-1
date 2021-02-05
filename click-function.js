@@ -10,6 +10,7 @@ var scoreDiv = $("#scoreValue");
 var score = 0;
 var highScore = localStorage.getItem("highScore") || [];
 var lastScore = localStorage.getItem("lastScore");
+var finalScore = $("#score")
 // if (localStorage.getItem("highScore")) {
 //     highScore = localStorage.getItem("highScore")
 // }else {
@@ -87,10 +88,11 @@ $.ajax({
         if (response.results.indexOf(response.results[index]) === 0 || nextQuestion <= maxQuestions)
             index++;
         if (index > 9) {
+            localStorage.setItem("final", score)
             location.href = "results.html";
-
-
+           
         }
+        
         // console.log(index)
         // console.log(questions + "this is Questions incremented ")
         questions = response.results[index].question;
@@ -105,6 +107,7 @@ $.ajax({
         btn3.text(incorrect2);
         btn4.text(incorrect3);
     }
+    
 
     var answer = [correctAnswers, incorrect1, incorrect2, incorrect3]
     // console.log(answer);

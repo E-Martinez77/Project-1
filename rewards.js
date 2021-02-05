@@ -1,7 +1,8 @@
 var highScore = localStorage.getItem("highScore") || [];
 var lastScore = localStorage.getItem("lastScore");
+var finalScore = localStorage.getItem("final")
 var scoreDiv = $("#scoreValue");
-var score = 5;
+// var score = 0 ;
 // var gifDiv = $(".gifDiv")
 var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=woeSTKx31cUEbpyCR3usgJEDXyL4dFlZ";
 var insult = "&tag=insult&rating=pg"
@@ -41,7 +42,7 @@ $.ajax({
     // });
 
     // scoreDiv.text(score);
-    $("#scoreValue").text(score)
+    $("#score").text(finalScore)
     // scoreDiv.text(score)
 
 function go(score) {
@@ -54,7 +55,7 @@ function go(score) {
     
 } 
 
-go(score)
+go(finalScore)
 
 // function upper () {
     
